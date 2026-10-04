@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How Small Is a Part per Trillion? | SHOW ME RISK-35</title>
+<meta name="description" content="A visual, interactive SHOW ME exhibit that makes ppm, ppb, ppt and ppq physical and translates a drinking-water concentration into exposure dose.">
+<style>
+:root{
+  --navy:#153c63;--navy2:#0d2f50;--blue:#2d76ad;--ink:#17212b;--muted:#64748b;
+  --line:#d9e2ea;--bg:#edf2f6;--soft:#f6f9fc;--green:#eaf7ef;--greenInk:#155d37;
+  --gold:#fff4d6;--goldLine:#e5c86b;--goldInk:#6e5200;--red:#b42318;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink)}
+a{color:#145d96}.wrap{max-width:1120px;margin:auto;background:#fff;min-height:100vh;box-shadow:0 0 28px #0002}
+header{background:linear-gradient(135deg,var(--navy2),var(--navy));color:#fff;padding:30px 32px 34px}
+.kicker{font-size:.77rem;font-weight:900;letter-spacing:.11em;text-transform:uppercase;color:#d7e7f5}
+h1{font-size:clamp(2.2rem,5vw,4.25rem);line-height:1;margin:7px 0 12px;letter-spacing:-.045em;max-width:950px}
+header p{font-size:1.08rem;line-height:1.5;margin:0;max-width:930px;color:#eef6ff}
+main{padding:26px 32px 48px}.topbar{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:20px;flex-wrap:wrap}
+.back{display:inline-block;background:var(--navy);color:#fff;text-decoration:none;font-weight:800;padding:9px 12px;border-radius:8px}
+.topic{font-size:.84rem;font-weight:800;color:var(--muted)}
+.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;align-items:stretch;margin-bottom:26px}
+.hero-main{border:1px solid var(--line);border-radius:14px;padding:22px;background:#fff}
+.hero-main .eyebrow{font-size:.78rem;font-weight:900;text-transform:uppercase;letter-spacing:.08em;color:var(--blue)}
+.hero-number{font-size:clamp(2.3rem,6vw,4.6rem);font-weight:950;line-height:1;color:var(--navy);letter-spacing:-.045em;margin:7px 0 8px}
+.hero-main p{font-size:1.03rem;line-height:1.55;margin:0;color:#344054}
+.hero-side{background:var(--gold);border:1px solid var(--goldLine);border-radius:14px;padding:20px;display:flex;flex-direction:column;justify-content:center}
+.hero-side strong{font-size:1.15rem;color:var(--goldInk)}.hero-side p{margin:7px 0 0;line-height:1.5;color:#5f4b10}
+.section{margin:0 0 32px}.section h2{font-size:1.42rem;color:var(--navy);margin:0 0 7px;letter-spacing:-.015em}.lede{margin:0 0 15px;line-height:1.55;color:#3d4a58;max-width:930px}
+.scale-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:11px}.scale-card{border:1px solid var(--line);border-radius:12px;padding:17px 15px;background:#fff;position:relative;overflow:hidden;min-height:178px}
+.scale-card:before{content:"";position:absolute;left:0;top:0;right:0;height:6px;background:var(--blue)}.scale-card.focus{border:2px solid #2d76ad;background:#f3f9fe}.scale-card.focus:before{height:7px}
+.scale-card .abbr{font-size:2rem;font-weight:950;color:var(--navy);letter-spacing:-.04em;margin:3px 0 2px}.scale-card .power{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9rem;font-weight:800;color:#475467}
+.scale-card .time{font-size:1.25rem;font-weight:900;margin-top:17px;line-height:1.15}.scale-card .caption{font-size:.85rem;color:var(--muted);line-height:1.35;margin-top:5px}
+.step-label{display:flex;align-items:center;justify-content:center;gap:8px;margin:13px 0 0;color:var(--muted);font-size:.86rem;font-weight:800;text-align:center}
+.step-label span{background:var(--soft);border:1px solid var(--line);padding:5px 8px;border-radius:999px}
+.water-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;border:1px solid var(--line);border-radius:12px;padding:12px;background:var(--soft)}
+.water-cell{background:#fff;border:1px solid #e1e8ef;border-radius:9px;padding:12px;text-align:center}.water-cell b{display:block;color:var(--navy);font-size:1.03rem}.water-cell span{display:block;margin-top:3px;color:#465565;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.source-line{font-size:.82rem;color:var(--muted);line-height:1.4;margin-top:8px}.source-line a{font-weight:700}
+.calculator{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}.calc-head{background:#f0f6fb;padding:16px 19px;border-bottom:1px solid var(--line)}.calc-head strong{font-size:1.08rem;color:var(--navy)}.calc-head div{margin-top:4px;color:var(--muted);font-size:.9rem;line-height:1.4}
+.calc-body{padding:19px;display:grid;grid-template-columns:.85fr 1.15fr;gap:20px}.controls{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-content:start}.field label{display:block;font-size:.8rem;font-weight:800;color:#475467;margin-bottom:5px}.field input,.field select{width:100%;padding:10px 11px;border:1px solid #b9c6d2;border-radius:8px;background:#fff;font-size:1rem;color:var(--ink)}
+.result-card{border:1px solid #d9e4ed;background:#fbfdff;border-radius:11px;padding:14px;margin-bottom:12px}.result-label{font-size:.76rem;font-weight:900;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}.result-main{font-size:1.42rem;font-weight:950;color:var(--navy);margin-top:4px}.result-sub{font-size:.92rem;color:#43515f;line-height:1.45;margin-top:4px}
+.plot{border:1px solid #dfe7ee;border-radius:10px;padding:10px 10px 5px;background:#fff}.plot-title{font-size:.82rem;font-weight:900;color:#475467;margin:0 0 2px}.formula{grid-column:1/-1;background:#f8fafc;border:1px dashed #bfcbd6;border-radius:9px;padding:11px 12px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.87rem;line-height:1.45;color:#344054}
+.stress{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.stress div{background:var(--soft);border:1px solid var(--line);border-radius:9px;padding:10px;font-size:.86rem;line-height:1.35;color:#44515e}.stress strong{display:block;color:var(--navy);margin-bottom:3px}
+.takeaway{background:var(--green);border:1px solid #a9d8bb;border-radius:12px;padding:18px 20px;color:#233e30;line-height:1.55}.takeaway strong{color:var(--greenInk)}
+.nextq{margin-top:12px;border-left:5px solid var(--blue);background:#f3f8fc;padding:13px 15px;border-radius:7px;line-height:1.45;color:#314252}.nextq strong{color:var(--navy)}
+details{border:1px solid var(--line);border-radius:11px;background:#fff;margin-top:18px}summary{cursor:pointer;padding:14px 16px;font-weight:900;color:var(--navy)}.details-body{padding:0 16px 16px;font-size:.9rem;line-height:1.55;color:#465565}.details-body p{margin:9px 0}.sources{padding-left:19px}.sources li{margin:8px 0}.sources a{font-weight:700}
+footer{border-top:1px solid var(--line);margin-top:30px;padding-top:15px;color:var(--muted);font-size:.81rem;line-height:1.45}
+@media(max-width:850px){.hero{grid-template-columns:1fr}.scale-grid,.water-row{grid-template-columns:1fr 1fr}.calc-body{grid-template-columns:1fr}.stress{grid-template-columns:1fr}}
+@media(max-width:560px){header,main{padding-left:18px;padding-right:18px}.scale-grid,.water-row,.controls{grid-template-columns:1fr}.hero-number{font-size:2.65rem}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="kicker">SHOW ME · RISK-35 · RISK &amp; TOXICOLOGY</div>
+  <h1>How small is a part per trillion?</h1>
+  <p>Make ppm, ppb, ppt and ppq visible first. Then turn the same drinking-water concentration into a human exposure dose by stating the route and assumptions.</p>
+</header>
+<main>
+  <div class="topbar">
+    <a class="back" href="https://rochesterrizzo.github.io/Rizzo-Hours/show-me/museum/">← BACK TO THE SHOW ME MUSEUM</a>
+    <div class="topic">Class-list topic: RISK-35 · “Make Parts per Trillion Physical”</div>
+  </div>
+
+  <section class="hero" aria-label="Main finding">
+    <div class="hero-main">
+      <div class="eyebrow">The scale in one sentence</div>
+      <div class="hero-number">1 ppt = 1 second in 31,689 years</div>
+      <p>That is a ratio, not a health conclusion. To turn a concentration in water into a dose, you still need an exposure route, an intake rate, and body weight.</p>
+    </div>
+    <div class="hero-side">
+      <strong>Why this matters</strong>
+      <p>Environmental stories often report a concentration alone. The number can sound huge or tiny without context. This exhibit separates two questions: <b>How dilute is it?</b> and <b>How much reaches a person?</b></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>1. See the scale</h2>
+    <p class="lede">Use the same unit—one second—to make each “part per” ratio physical. Each step below is exactly <strong>1,000× smaller</strong> than the one before it.</p>
+    <div class="scale-grid">
+      <div class="scale-card">
+        <div class="abbr">1 ppm</div><div class="power">10⁻⁶ = 1 in 1,000,000</div>
+        <div class="time">1 second in 11.6 days</div><div class="caption">One million seconds ≈ 11.57 days.</div>
+      </div>
+      <div class="scale-card">
+        <div class="abbr">1 ppb</div><div class="power">10⁻⁹ = 1 in 1,000,000,000</div>
+        <div class="time">1 second in 31.7 years</div><div class="caption">One billion seconds ≈ 31.69 years.</div>
+      </div>
+      <div class="scale-card focus">
+        <div class="abbr">1 ppt</div><div class="power">10⁻¹² = 1 in 1,000,000,000,000</div>
+        <div class="time">1 second in 31,689 years</div><div class="caption">One trillion seconds ≈ 31.69 thousand years.</div>
+      </div>
+      <div class="scale-card">
+        <div class="abbr">1 ppq</div><div class="power">10⁻¹⁵ = 1 in 1,000,000,000,000,000</div>
+        <div class="time">1 second in 31.7 million years</div><div class="caption">One quadrillion seconds ≈ 31.69 million years.</div>
+      </div>
+    </div>
+    <div class="step-label"><span>ppm</span> → ÷1,000 → <span>ppb</span> → ÷1,000 → <span>ppt</span> → ÷1,000 → <span>ppq</span></div>
+    <div class="source-line">Scale check: <a href="https://www.nist.gov/pml/owm/metric-si-prefixes" target="_blank" rel="noopener">NIST metric/SI prefixes</a>. Time conversions use 365.2425 days per year.</div>
+  </section>
+
+  <section class="section">
+    <h2>2. Put the ratios into drinking water</h2>
+    <p class="lede">For <strong>dilute water</strong>, the density is close enough to 1 kg/L that these common concentration units line up approximately:</p>
+    <div class="water-row">
+      <div class="water-cell"><b>1 ppm</b><span>≈ 1 mg/L</span></div>
+      <div class="water-cell"><b>1 ppb</b><span>≈ 1 µg/L</span></div>
+      <div class="water-cell"><b>1 ppt</b><span>≈ 1 ng/L</span></div>
+      <div class="water-cell"><b>1 ppq</b><span>≈ 1 pg/L</span></div>
+    </div>
+    <div class="source-line">Water-unit check: <a href="https://www.epa.gov/system/files/documents/2025-03/ccr-presentation_updated-march-2025.pdf" target="_blank" rel="noopener">U.S. EPA, Consumer Confidence Report units</a>. These equivalences are not universal for every medium.</div>
+  </section>
+
+  <section class="section">
+    <h2>3. Turn concentration into a dose</h2>
+    <p class="lede">Exposure route: <strong>drinking-water ingestion</strong>. Change the concentration, water intake, or body weight. The calculator uses the ATSDR structure <strong>D = (C × IR × EF) / BW</strong>, with EF = 1 for daily exposure.</p>
+    <div class="calculator">
+      <div class="calc-head"><strong>Interactive exposure model</strong><div>The default 2 L/day and 70 kg are simple illustrative assumptions, not population defaults. Change them and the result updates immediately.</div></div>
+      <div class="calc-body">
+        <div class="controls">
+          <div class="field"><label for="conc">Concentration value</label><input id="conc" type="number" min="0" step="any" value="1"></div>
+          <div class="field"><label for="scale">Concentration scale</label><select id="scale"><option value="ppm">ppm</option><option value="ppb">ppb</option><option value="ppt" selected>ppt</option><option value="ppq">ppq</option></select></div>
+          <div class="field"><label for="water">Water intake (L/day)</label><input id="water" type="number" min="0" step="0.1" value="2"></div>
+          <div class="field"><label for="weight">Body weight (kg)</label><input id="weight" type="number" min="1" step="0.1" value="70"></div>
+        </div>
+        <div>
+          <div class="result-card">
+            <div class="result-label">What the selected concentration becomes</div>
+            <div class="result-main" id="dailyMass">2 ng swallowed per day</div>
+            <div class="result-sub" id="doseText">Exposure dose: 2.86 × 10⁻⁸ mg/kg-day</div>
+          </div>
+          <div class="plot">
+            <div class="plot-title">Dose on a logarithmic scale (mg/kg-day)</div>
+            <svg id="dosePlot" viewBox="0 0 720 118" width="100%" role="img" aria-label="Logarithmic dose scale">
+              <line x1="55" y1="58" x2="680" y2="58" stroke="#8aa0b5" stroke-width="2"/>
+              <g font-family="Arial,Helvetica,sans-serif" font-size="12" fill="#5f6f80">
+                <g><line x1="55" y1="50" x2="55" y2="66" stroke="#8aa0b5"/><text x="55" y="87" text-anchor="middle">10⁻¹²</text></g>
+                <g><line x1="169" y1="50" x2="169" y2="66" stroke="#8aa0b5"/><text x="169" y="87" text-anchor="middle">10⁻¹⁰</text></g>
+                <g><line x1="282" y1="50" x2="282" y2="66" stroke="#8aa0b5"/><text x="282" y="87" text-anchor="middle">10⁻⁸</text></g>
+                <g><line x1="396" y1="50" x2="396" y2="66" stroke="#8aa0b5"/><text x="396" y="87" text-anchor="middle">10⁻⁶</text></g>
+                <g><line x1="509" y1="50" x2="509" y2="66" stroke="#8aa0b5"/><text x="509" y="87" text-anchor="middle">10⁻⁴</text></g>
+                <g><line x1="623" y1="50" x2="623" y2="66" stroke="#8aa0b5"/><text x="623" y="87" text-anchor="middle">10⁻²</text></g>
+              </g>
+              <circle id="doseMarker" cx="300" cy="58" r="9" fill="#153c63"/>
+              <text id="markerLabel" x="300" y="33" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="700" fill="#153c63">selected dose</text>
+            </svg>
+          </div>
+        </div>
+        <div class="formula" id="formula">1 ppt ≈ 0.000001 mg/L × 2 L/day ÷ 70 kg = 2.857 × 10⁻⁸ mg/kg-day</div>
+        <div class="stress">
+          <div><strong>Double the concentration</strong>Dose doubles.</div>
+          <div><strong>Double water intake</strong>Dose doubles.</div>
+          <div><strong>Double body weight</strong>Dose is cut in half.</div>
+        </div>
+      </div>
+    </div>
+    <div class="source-line">Dose equation: <a href="https://www.atsdr.cdc.gov/pha-guidance/conducting_scientific_evaluations/epcs_and_exposure_calculations/estimating-site-specific-ingestion-and-dermal-exposure-doses.html" target="_blank" rel="noopener">ATSDR drinking-water ingestion exposure dose</a>.</div>
+  </section>
+
+  <section class="section">
+    <div class="takeaway"><strong>Main takeaway:</strong> concentration and dose are different quantities. At the default assumptions, <strong>1 ppt in drinking water = 2 ng swallowed per day = 2.86 × 10⁻⁸ mg/kg-day</strong>. The number changes when exposure assumptions change. A concentration alone therefore does not tell you the dose.</div>
+    <div class="nextq"><strong>The next question:</strong> choose a specific substance, then compare the calculated dose with substance-specific toxicology or regulatory benchmarks. That is a different analysis from simply detecting the substance.</div>
+  </section>
+
+  <details>
+    <summary>Sources, assumptions, reproduction, and AI use</summary>
+    <div class="details-body">
+      <p><strong>How to reproduce the time visual:</strong> ppm = 10⁻⁶, ppb = 10⁻⁹, ppt = 10⁻¹², ppq = 10⁻¹⁵. Invert each ratio to get 10⁶, 10⁹, 10¹², and 10¹⁵ seconds, then convert seconds to days or years.</p>
+      <p><strong>How to reproduce the dose example:</strong> convert the selected drinking-water concentration to mg/L; multiply by liters consumed per day; divide by body weight in kilograms. The calculator fixes exposure factor EF = 1 for daily exposure.</p>
+      <p><strong>Important boundary:</strong> the ppm↔mg/L, ppb↔µg/L, ppt↔ng/L, and ppq↔pg/L equivalences here are for dilute water. “Parts per” can be defined differently in other media or contexts.</p>
+      <ul class="sources">
+        <li><a href="https://www.nist.gov/pml/owm/metric-si-prefixes" target="_blank" rel="noopener">NIST — Metric (SI) Prefixes</a></li>
+        <li><a href="https://www.epa.gov/system/files/documents/2025-03/ccr-presentation_updated-march-2025.pdf" target="_blank" rel="noopener">U.S. EPA — Consumer Confidence Report reporting units</a></li>
+        <li><a href="https://www.atsdr.cdc.gov/pha-guidance/conducting_scientific_evaluations/epcs_and_exposure_calculations/estimating-site-specific-ingestion-and-dermal-exposure-doses.html" target="_blank" rel="noopener">ATSDR — Drinking-water ingestion exposure dose formula</a></li>
+      </ul>
+      <p><strong>AI use:</strong> AI was asked to (1) locate authoritative definitions and exposure equations, (2) convert the four ratios into the same time analogy, (3) implement and test the drinking-water dose calculation, (4) vary concentration, intake, and body weight to show how assumptions change the answer, and (5) build the public HTML/JavaScript exhibit. The sources, equation, assumptions, and calculations are exposed here so the result can be checked and extended.</p>
+    </div>
+  </details>
+
+  <footer>SHOW ME RISK-35 · “Make Parts per Trillion Physical” · This exhibit estimates exposure dose only; it does not estimate toxicity, health effects, or regulatory compliance.</footer>
+</main>
+</div>
+<script>
+const unitMap={
+  ppm:{mgL:1,massUnit:'mg',massPerL:1},
+  ppb:{mgL:1e-3,massUnit:'µg',massPerL:1},
+  ppt:{mgL:1e-6,massUnit:'ng',massPerL:1},
+  ppq:{mgL:1e-9,massUnit:'pg',massPerL:1}
+};
+const supers={'-':'⁻','0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹'};
+function expText(e){return String(e).split('').map(c=>supers[c]||c).join('')}
+function sci(x,d=3){
+  if(!isFinite(x)) return '—'; if(x===0) return '0';
+  const e=Math.floor(Math.log10(Math.abs(x))),m=x/Math.pow(10,e);
+  if(e>=-2&&e<=3) return x.toLocaleString(undefined,{maximumSignificantDigits:4});
+  return m.toFixed(d).replace(/\.000$/,'')+' × 10'+expText(e);
+}
+function trim(x){return Number(x).toLocaleString(undefined,{maximumSignificantDigits:5})}
+function update(){
+  const v=Math.max(0,parseFloat(document.getElementById('conc').value)||0);
+  const scale=document.getElementById('scale').value;
+  const water=Math.max(0,parseFloat(document.getElementById('water').value)||0);
+  const weight=Math.max(.000001,parseFloat(document.getElementById('weight').value)||70);
+  const u=unitMap[scale],mgL=v*u.mgL,dailyMg=mgL*water,dose=dailyMg/weight;
+  const dailyDisplay=v*u.massPerL*water;
+  document.getElementById('dailyMass').textContent=trim(dailyDisplay)+' '+u.massUnit+' swallowed per day';
+  document.getElementById('doseText').textContent='Exposure dose: '+sci(dose)+' mg/kg-day';
+  document.getElementById('formula').textContent=trim(v)+' '+scale+' ≈ '+sci(mgL)+' mg/L × '+trim(water)+' L/day ÷ '+trim(weight)+' kg = '+sci(dose)+' mg/kg-day';
+  const minExp=-12,maxExp=-1,x0=55,x1=680;
+  let log=dose>0?Math.log10(dose):minExp;
+  let clamped=Math.max(minExp,Math.min(maxExp,log));
+  let x=x0+(clamped-minExp)/(maxExp-minExp)*(x1-x0);
+  const marker=document.getElementById('doseMarker'),label=document.getElementById('markerLabel');
+  marker.setAttribute('cx',x); label.setAttribute('x',x);
+  if(dose<=0) label.textContent='0';
+  else if(log<minExp) label.textContent='< 10'+expText(minExp);
+  else if(log>maxExp) label.textContent='> 10'+expText(maxExp);
+  else label.textContent=sci(dose,2);
+}
+['conc','scale','water','weight'].forEach(id=>document.getElementById(id).addEventListener('input',update));
+update();
+</script>
+</body>
+</html>
