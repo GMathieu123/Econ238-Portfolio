@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>What Does 10 Minutes of Idling Really Cost? | SHOW ME</title>
+<style>
+:root{
+  --navy:#163f6d;--ink:#17212b;--muted:#667085;--line:#d9e0e7;--bg:#eef2f6;
+  --blue:#2d6ea3;--gold:#c99720;--green:#196c47;--red:#9b1c31;--soft:#f6f8fb
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink)}
+.wrap{max-width:1120px;margin:auto;background:#fff;min-height:100vh;box-shadow:0 0 24px #0002}
+header{background:var(--navy);color:#fff;padding:30px 32px}
+.kicker{font-size:.78rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:#d7e7f5}
+h1{font-size:clamp(2rem,5vw,4rem);line-height:1.02;margin:6px 0 9px;letter-spacing:-.035em}
+header p{font-size:1.12rem;line-height:1.45;margin:0;max-width:920px}
+main{padding:26px 32px 46px}
+.hero{border:1px solid var(--line);border-radius:14px;padding:22px;background:#fbfcfd}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;align-items:start}
+.hero h2{margin:0 0 8px;color:var(--navy)}
+.big{font-size:clamp(2.4rem,6.5vw,5.3rem);font-weight:900;line-height:.98;color:var(--red);margin:8px 0 10px}
+.sub{font-size:1.05rem;line-height:1.55}
+.rangebox{border-left:5px solid var(--gold);background:#fff8e8;border-radius:8px;padding:14px 16px}
+.rangebox b{font-size:1.35rem;color:#6f4f00}
+.source-note{font-size:.83rem;color:var(--muted);line-height:1.4;margin-top:8px}
+.section{margin-top:28px}
+.section h2{color:var(--navy);margin:0 0 10px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.card{border:1px solid var(--line);border-radius:12px;padding:18px;background:#fff}
+.card h3{margin:0 0 10px;color:var(--navy)}
+label{display:block;font-weight:800;margin:12px 0 5px}
+input,select{width:100%;padding:10px;border:1px solid #aeb8c3;border-radius:8px;font:inherit;background:#fff}
+.small{font-size:.88rem;color:var(--muted);line-height:1.45}
+.results{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}
+.result{background:var(--soft);border-radius:10px;padding:13px}
+.result span{display:block;font-size:.82rem;color:var(--muted);font-weight:700}
+.result b{display:block;color:var(--navy);font-size:1.36rem;margin-top:4px}
+.decision{margin-top:14px;border:2px solid #b8d7c7;background:#f2fbf6;border-radius:10px;padding:14px}
+.decision b{font-size:1.4rem;color:var(--green)}
+.chart{border:1px solid var(--line);border-radius:12px;padding:18px;background:#fff}
+.chart-row{display:grid;grid-template-columns:72px 1fr 95px;gap:10px;align-items:center;margin:13px 0}
+.track{height:28px;background:#eef2f5;border-radius:14px;overflow:hidden;display:flex}
+.priv{height:100%;background:var(--blue)}
+.ext{height:100%;background:var(--gold)}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:.88rem;color:var(--muted);margin-top:10px}
+.sw{display:inline-block;width:14px;height:14px;border-radius:3px;margin-right:6px;vertical-align:-2px}
+.callout{border-left:6px solid var(--gold);background:#fff9e8;padding:15px 17px;margin-top:22px;border-radius:8px;line-height:1.5}
+table{width:100%;border-collapse:collapse;margin-top:10px}
+th,td{padding:10px;border-bottom:1px solid var(--line);text-align:right}
+th:first-child,td:first-child{text-align:left}
+code{background:#f2f4f7;padding:2px 5px;border-radius:4px}
+details{border:1px solid var(--line);border-radius:10px;margin:10px 0;background:#fff}
+summary{cursor:pointer;padding:13px 15px;font-weight:900;color:var(--navy)}
+details div{padding:0 15px 15px;line-height:1.55}
+a{color:#0b5ea8}
+@media(max-width:760px){
+  header,main{padding-left:18px;padding-right:18px}
+  .hero-grid,.grid{grid-template-columns:1fr}
+  .chart-row{grid-template-columns:62px 1fr 82px}
+  .results{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<div class="kicker">SHOW ME · STUDENT-CREATED · ENVIRONMENTAL ECONOMICS</div>
+<h1>What Does 10 Minutes of Idling Really Cost?</h1>
+<p>A running parked car creates two different costs: one the driver pays directly, and one that falls outside the gasoline purchase. This exhibit puts both on the same scale.</p>
+</header>
+
+<main>
+<section class="hero">
+<div class="hero-grid">
+<div>
+<h2>Start with 10 minutes</h2>
+<div class="big" id="heroTotal">$0.34</div>
+<div class="sub">At the default assumptions, 10 minutes of idling burns <strong id="heroFuel">0.063 gal</strong>, costs the driver <strong id="heroPrivate">$0.22</strong>, emits <strong id="heroCO2">0.56 kg CO₂</strong>, and creates an estimated <strong id="heroExternal">$0.12</strong> in climate damages.</div>
+</div>
+<div class="rangebox">
+<div class="small">HOW CERTAIN IS THAT NUMBER?</div>
+<b id="rangeTotal">$0.20–$0.56</b>
+<p class="small" style="margin-bottom:0">Using DOE's 0.25–0.50 gal/hour idling range and EPA's 2026 SC-CO₂ values of $133–$365 per metric ton, the monetized 10-minute cost spans this range at the same $3.50/gallon gasoline assumption.</p>
+</div>
+</div>
+</section>
+
+<section class="section">
+<h2>Build the scenario yourself</h2>
+<div class="grid">
+<div class="card">
+<h3>Inputs</h3>
+<label for="minutes">Minutes idling</label>
+<input id="minutes" type="number" min="0" step="1" value="10">
+
+<label for="rate">Fuel use while idling (gal/hour)</label>
+<select id="rate">
+  <option value="0.25">0.25 — DOE low end</option>
+  <option value="0.375" selected>0.375 — midpoint</option>
+  <option value="0.50">0.50 — DOE high end</option>
+</select>
+
+<label for="gas">Gasoline price ($/gallon)</label>
+<input id="gas" type="number" min="0" step="0.01" value="3.50">
+<div class="small">Illustrative—not presented as today's national price.</div>
+
+<label for="scc">EPA 2026 social cost of CO₂</label>
+<select id="scc">
+  <option value="133">$133/t — 2.5% near-term Ramsey rate</option>
+  <option value="215" selected>$215/t — 2.0% near-term Ramsey rate</option>
+  <option value="365">$365/t — 1.5% near-term Ramsey rate</option>
+</select>
+<div class="small">EPA values are in 2020 dollars per metric ton CO₂. Changing the discount-rate assumption materially changes the estimated external cost.</div>
+</div>
+
+<div class="card">
+<h3>Outputs</h3>
+<div class="results">
+<div class="result"><span>Fuel burned</span><b id="fuel">0.063 gal</b></div>
+<div class="result"><span>Private fuel cost</span><b id="private">$0.22</b></div>
+<div class="result"><span>Tailpipe CO₂</span><b id="co2">0.56 kg</b></div>
+<div class="result"><span>Climate external cost</span><b id="external">$0.12</b></div>
+</div>
+<div class="decision">
+<div class="small">ECONOMIC BREAK-EVEN</div>
+<b id="breakEven">$0.34 of benefit</b>
+<p style="margin:6px 0 0;line-height:1.45">Within this deliberately narrow model, the comfort/convenience/safety benefit of idling would need to be worth at least this much to exceed the private fuel cost plus the modeled climate external cost.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+<h2>See how the cost grows with time</h2>
+<div class="chart">
+<div class="chart-row"><strong>5 min</strong><div class="track"><div id="p5" class="priv"></div><div id="e5" class="ext"></div></div><strong id="t5">$0.17</strong></div>
+<div class="chart-row"><strong>10 min</strong><div class="track"><div id="p10" class="priv"></div><div id="e10" class="ext"></div></div><strong id="t10">$0.34</strong></div>
+<div class="chart-row"><strong>30 min</strong><div class="track"><div id="p30" class="priv"></div><div id="e30" class="ext"></div></div><strong id="t30">$1.01</strong></div>
+<div class="chart-row"><strong>60 min</strong><div class="track"><div id="p60" class="priv"></div><div id="e60" class="ext"></div></div><strong id="t60">$2.03</strong></div>
+<div class="legend">
+<span><i class="sw" style="background:var(--blue)"></i>Private fuel cost</span>
+<span><i class="sw" style="background:var(--gold)"></i>Modeled climate external cost</span>
+</div>
+</div>
+</section>
+
+<div class="callout"><strong>Environmental-economics point:</strong> gasoline expenditure is a <strong>private marginal cost</strong>. The climate damage associated with the extra CO₂ is an <strong>external cost</strong>. A marginal decision should compare the benefit of another minute of idling with both costs—not assume the activity is automatically good or bad.</div>
+
+<section class="section">
+<h2>What if the same 10 minutes happens every day?</h2>
+<table>
+<thead><tr><th>Measure</th><th>One day</th><th>365 days</th></tr></thead>
+<tbody>
+<tr><td>Fuel burned</td><td id="dFuel">0.063 gal</td><td id="yFuel">22.81 gal</td></tr>
+<tr><td>Private fuel cost</td><td id="dPrivate">$0.22</td><td id="yPrivate">$79.84</td></tr>
+<tr><td>CO₂ emitted</td><td id="dCO2">0.56 kg</td><td id="yCO2">202.73 kg</td></tr>
+<tr><td>Climate external cost</td><td id="dExternal">$0.12</td><td id="yExternal">$43.59</td></tr>
+<tr><td><strong>Total monetized cost</strong></td><td id="dTotal"><strong>$0.34</strong></td><td id="yTotal"><strong>$123.43</strong></td></tr>
+</tbody>
+</table>
+</section>
+
+<section class="section">
+<h2>How to reproduce it</h2>
+<p><code>Fuel = idling rate × minutes ÷ 60</code></p>
+<p><code>Private cost = fuel × gasoline price</code></p>
+<p><code>CO₂ = fuel × 8.887 kg CO₂/gallon</code></p>
+<p><code>Climate external cost = (CO₂ kg ÷ 1,000) × SC-CO₂</code></p>
+<p><code>Break-even benefit = private cost + modeled climate external cost</code></p>
+</section>
+
+<section class="section">
+<h2>Kick the tires</h2>
+<div class="grid">
+<div class="card">
+<h3>Fuel-use uncertainty</h3>
+<p>DOE gives roughly <strong>0.25–0.50 gallon/hour</strong> for parked idling. At the same gasoline price, that alone doubles the private cost and CO₂ result.</p>
+</div>
+<div class="card">
+<h3>Valuing climate damages</h3>
+<p>EPA's 2026 SC-CO₂ values range from <strong>$133 to $365 per metric ton</strong> across the 2.5%, 2.0%, and 1.5% near-term Ramsey discount-rate cases. The environmental cost therefore depends on an economic assumption, not just chemistry.</p>
+</div>
+</div>
+</section>
+
+<section class="section">
+<h2>What this does—and does not—show</h2>
+<p>This exhibit does <strong>not</strong> claim that every minute of idling should stop. Idling can provide heat, air conditioning, visibility, safety, or convenience. It also does not monetize local air pollution, noise, engine wear, starter wear, or other effects. The model intentionally isolates one private cost and one external cost so the tradeoff can be seen clearly.</p>
+<p><strong>Next question:</strong> If those additional benefits and costs were added, when would the marginal social benefit of another minute of idling exceed its marginal social cost?</p>
+</section>
+
+<section class="section">
+<h2>Sources, assumptions, and AI use</h2>
+<details open>
+<summary>Authoritative sources</summary>
+<div>
+<p><strong>U.S. Department of Energy:</strong> parked idling can use about a quarter to a half gallon of fuel per hour.<br>
+<a href="https://www.energy.gov/articles/tips-your-tank-summer-driving-season">DOE — Tips For Your Tank This Summer Driving Season</a></p>
+
+<p><strong>U.S. EPA:</strong> gasoline combustion emits 8,887 grams of CO₂ per gallon.<br>
+<a href="https://nepis.epa.gov/Exe/ZyPURL.cgi?Dockey=P1017FP5.txt">EPA — Greenhouse Gas Emissions from a Typical Passenger Vehicle</a></p>
+
+<p><strong>U.S. EPA:</strong> Table A.5.1 reports 2026 SC-CO₂ values of $133, $215, and $365 per metric ton CO₂ at 2.5%, 2.0%, and 1.5% near-term Ramsey discount rates, respectively, in 2020 dollars.<br>
+<a href="https://www.epa.gov/system/files/documents/2023-12/epa_scghg_2023_report_final.pdf">EPA — Report on the Social Cost of Greenhouse Gases</a></p>
+</div>
+</details>
+
+<details>
+<summary>Assumptions</summary>
+<div>
+<p>The default idling rate is 0.375 gal/hour, the midpoint of DOE's 0.25–0.50 range. The $3.50/gallon gasoline price is illustrative and adjustable. The default $215/t SC-CO₂ is EPA's 2026 value at the 2.0% near-term Ramsey discount rate. The exhibit reports tailpipe CO₂ only and treats the EPA social-cost estimate as a modeled external cost, not a literal fee charged to a driver.</p>
+</div>
+</details>
+
+<details>
+<summary>What AI was used to do</summary>
+<div>
+<p>AI was used to locate and compare the DOE and EPA source material, check unit conversions, calculate low/central/high scenarios, test how the results change when assumptions change, and build the interactive public exhibit. The underlying source values, formulas, and assumptions are displayed so another reader can reproduce the calculation and change the model.</p>
+</div>
+</details>
+</section>
+</main>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const kgPerGal=8.887;
+
+function money(x){return '$'+x.toFixed(2)}
+function calc(minutes,rate,gas,scc){
+  const gal=rate*minutes/60;
+  const priv=gal*gas;
+  const kg=gal*kgPerGal;
+  const ext=(kg/1000)*scc;
+  return {gal,priv,kg,ext,total:priv+ext};
+}
+function setBar(min, maxTotal, c){
+  const w=100*c.total/maxTotal;
+  const wp=w*(c.priv/c.total || 0);
+  const we=w*(c.ext/c.total || 0);
+  $('p'+min).style.width=wp+'%';
+  $('e'+min).style.width=we+'%';
+  $('t'+min).textContent=money(c.total);
+}
+function update(){
+  const minutes=Math.max(0,parseFloat($('minutes').value)||0);
+  const rate=Math.max(0,parseFloat($('rate').value)||0);
+  const gas=Math.max(0,parseFloat($('gas').value)||0);
+  const scc=Math.max(0,parseFloat($('scc').value)||0);
+
+  const c=calc(minutes,rate,gas,scc);
+  $('fuel').textContent=c.gal.toFixed(3)+' gal';
+  $('private').textContent=money(c.priv);
+  $('co2').textContent=c.kg.toFixed(2)+' kg';
+  $('external').textContent=money(c.ext);
+  $('breakEven').textContent=money(c.total)+' of benefit';
+
+  $('heroTotal').textContent=money(c.total);
+  $('heroFuel').textContent=c.gal.toFixed(3)+' gal';
+  $('heroPrivate').textContent=money(c.priv);
+  $('heroCO2').textContent=c.kg.toFixed(2)+' kg CO₂';
+  $('heroExternal').textContent=money(c.ext);
+
+  const low=calc(10,0.25,gas,133);
+  const high=calc(10,0.50,gas,365);
+  $('rangeTotal').textContent=money(low.total)+'–'+money(high.total);
+
+  const times=[5,10,30,60];
+  const vals=times.map(t=>calc(t,rate,gas,scc));
+  const maxTotal=Math.max(...vals.map(v=>v.total),1e-9);
+  times.forEach((t,i)=>setBar(t,maxTotal,vals[i]));
+
+  const d=calc(10,rate,gas,scc);
+  $('dFuel').textContent=d.gal.toFixed(3)+' gal';
+  $('yFuel').textContent=(d.gal*365).toFixed(2)+' gal';
+  $('dPrivate').textContent=money(d.priv);
+  $('yPrivate').textContent=money(d.priv*365);
+  $('dCO2').textContent=d.kg.toFixed(2)+' kg';
+  $('yCO2').textContent=(d.kg*365).toFixed(2)+' kg';
+  $('dExternal').textContent=money(d.ext);
+  $('yExternal').textContent=money(d.ext*365);
+  $('dTotal').innerHTML='<strong>'+money(d.total)+'</strong>';
+  $('yTotal').innerHTML='<strong>'+money(d.total*365)+'</strong>';
+}
+['minutes','rate','gas','scc'].forEach(id=>$(id).addEventListener('input',update));
+update();
+</script>
+</body>
+</html>
