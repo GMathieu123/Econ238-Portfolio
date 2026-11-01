@@ -58,3 +58,10 @@ Looking at the Colossus I report shows how context matters with continuous usage
 These Data centers can create real external costs however especially through pollution and resource usage. This can cause people and local governments to ban these data centers but it doesn't solve the root of the problem which can cause these centers to move and just affect a different area. Better policies should be in place for these data centers that require them to pay for infrastructure and taxes on pollution. 
 Overall the main lesson is to take account of these large numbers but don't let them scare you. Rather needing to take a look at the root problem and being able to see the different costs and benefits that could come out of each situation. 
  
+
+
+## Week Nine — Environmental and Restorative Justice
+
+[**Who Gets the Green? Who Owns the Land?** — interactive educational exhibit](Week09-Environmental-Restorative-Justice/README.md)
+
+A researched visual explainer exploring the Rochester Inner Loop, traffic noise, greenlining, land acknowledgments, and Indigenous land stewardship. The required Week Nine recorded discussion is a separate assignment component.
