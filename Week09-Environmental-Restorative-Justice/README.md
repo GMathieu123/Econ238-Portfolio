@@ -3,7 +3,7 @@
 
 > **The question:** What if a well-intentioned policy improves a place without improving the lives of the people it was designed to protect?
 
-**Week Nine · Fall 2026** | Research-based visual explainer synthesized from written responses and a *planned* discussion guide. **This is not represented as a transcript of a completed recording.**
+**Week Nine · Fall 2026** | AI-assisted educational exhibit drawing on Part 1 written responses and Part 2's completed spoken discussion. The speaker confirmed the recording follows the prepared script verbatim; the audio file has not been independently reviewed here.
 
 ---
 
@@ -85,6 +85,21 @@ In a **difference-in-differences** design, an economist compares changes in affe
 
 **What would count as success?** Cleaner air and less noise; continued access to affordable housing; more genuine civic participation; durable Indigenous decision-making rights; better habitat conditions; and benefits that reach people who were originally disadvantaged.
 
+## 🎙️ 6 | From the spoken discussion: how do rights become real?
+
+The recorded presentation worked through questions **7–12 (including 10A)** and arrived at several connected ideas:
+
+- **Property rights can be complicated:** Federal trust status and fractionated allotments can make leases, mineral development and recreation investments harder, even while protecting important tribal interests.
+- **Investment needs institutions:** The **HEARTH Act** opened paths for tribal control of certain leases; the **Indian Gaming Regulatory Act** provided a framework for tribal casinos. Location, financing and governance still affect outcomes.
+- **Statements are not deeds:** Land acknowledgments can help raise awareness, but they rarely transfer authority, resources or property. A test of effectiveness is whether they lead to durable tribal partnerships, funding and decision-making power.
+- **Disagreement has incentives, too:** The University of Washington legal dispute raises questions about the costs of dissent and the difference between institutional symbolism and demonstrable results.
+- **Land and parks need actual trade-off analysis:** Tribal-led development such as **Sen̓áḵw** and co-management at **Bears Ears** illustrate approaches beyond symbolic gestures. A national-parks transfer proposal would also require decisions about entry fees, public access, conservation duties and which nations govern.
+- **Try a measurable pilot:** Rather than assuming that either federal or tribal management is best, test voluntary co-management arrangements and compare habitat protection, visitor access, revenues and tribal outcomes over time.
+
+**Reflection prompt:** If a land acknowledgment costs a university little but a land transfer changes real control, what would count as an equitable and economically effective compromise?
+
+*Source note: These points synthesize the script the speaker reports having recorded word-for-word. The script's student interview illustration was explicitly hypothetical; it is not evidence that an outside-class interview occurred.*
+
 ### 💬 Questions for readers
 
 1. If a neighborhood becomes greener but too expensive for its current renters, who gained?
@@ -108,4 +123,4 @@ In a **difference-in-differences** design, an economist compares changes in affe
 - [Squamish Nation: Sen̓áḵw](https://www.squamish.net/partnerships-entities/partnerships/senakw/)
 - [BLM: Bears Ears cooperative agreement](https://www.blm.gov/canyon-country-do/public-room-blm-library/memorandum-understanding/bears-ears-national-monument)
 
-*Created with AI assistance for ECON 238. Hypotheses about potential displacement or redirected investment are not presented as established causal findings. This educational exhibit draws on a draft written analysis and discussion guide; the assignment also requires an actual recorded discussion and transcript.*
+*Created with AI assistance for ECON 238. Hypotheses about potential displacement or redirected investment are not presented as established causal findings. The discussion was reportedly recorded verbatim from the script and has not been independently audio-verified. The audio recording itself must still be submitted separately to Blackboard.*
