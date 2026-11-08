@@ -1,5 +1,10 @@
 # Econ238-Portfolio
 
+## ECON 238 - Week Ten MOATS
+
+[View the public Rochester MOAT Notice card](./MOATS_Notice_Week10.md) — *Our Classrooms Are Not for Sale* (proposed University of Rochester cultural moat).
+
+
 Assignment 1: 
 Q1) 
 Part A:
