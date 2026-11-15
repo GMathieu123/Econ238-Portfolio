@@ -70,3 +70,9 @@ Overall the main lesson is to take account of these large numbers but don't let 
 [**Who Gets the Green? Who Owns the Land?** — interactive educational exhibit](Week09-Environmental-Restorative-Justice/README.md)
 
 A researched visual explainer exploring the Rochester Inner Loop, traffic noise, greenlining, land acknowledgments, and Indigenous land stewardship. The required Week Nine recorded discussion is a separate assignment component.
+
+## ECON 238 — Week Eleven: Hire the Beavers
+
+[**View the Week Eleven infographic and full project**](./week11-hire-the-beavers/index.html) — *A Beaver Payroll for measurable wetland and flood-risk benefits.*
+
+[Read the complete written report and sources](./week11-hire-the-beavers/full-project.md).
